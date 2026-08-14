@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rony | Links</title>
+<meta name="description" content="Enlaces recomendados y productos de afiliado">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D12;
+    --bg-2:#12161D;
+    --card:#151A22;
+    --card-hover:#1B222C;
+    --border:#232A35;
+    --cyan:#31E5C8;
+    --magenta:#FF3B6E;
+    --text:#EDEFF3;
+    --text-dim:#8A93A3;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    overflow-x:hidden;
+  }
+  .wrap{
+    width:100%;
+    max-width:460px;
+    padding:48px 20px 40px;
+    position:relative;
+    z-index:1;
+  }
+  /* fondo con lineas de velocidad sutiles */
+  .bg-lines{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(600px 300px at 50% -10%, rgba(49,229,200,0.10), transparent 60%),
+      radial-gradient(500px 260px at 90% 10%, rgba(255,59,110,0.08), transparent 60%);
+  }
+  .streak{
+    position:fixed; left:-10%; width:120%; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(49,229,200,0.35), transparent);
+    animation:sweep 7s linear infinite;
+    opacity:0;
+  }
+  .streak.s2{ animation-delay:2.3s; background:linear-gradient(90deg, transparent, rgba(255,59,110,0.25), transparent);}
+  .streak.s3{ animation-delay:4.6s; }
+  @keyframes sweep{
+    0%{ top:15%; opacity:0; }
+    5%{ opacity:1; }
+    50%{ opacity:.6; }
+    95%{ opacity:0; }
+    100%{ top:85%; opacity:0; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .streak{ animation:none; display:none; }
+  }
+
+  .avatar{
+    width:84px; height:84px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--cyan), var(--magenta));
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 18px;
+    padding:3px;
+  }
+  .avatar-inner{
+    width:100%; height:100%;
+    border-radius:50%;
+    background:var(--bg-2);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Rajdhani',sans-serif;
+    font-size:28px; font-weight:700;
+    letter-spacing:1px;
+  }
+
+  h1{
+    font-family:'Rajdhani',sans-serif;
+    font-size:26px;
+    font-weight:700;
+    text-align:center;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+  }
+  .handle{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:14px;
+    margin-top:4px;
+  }
+  .tagline{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:13px;
+    margin-top:10px;
+    line-height:1.5;
+    max-width:320px;
+    margin-left:auto; margin-right:auto;
+  }
+
+  .divider{
+    height:2px;
+    width:60px;
+    margin:24px auto 28px;
+    background:linear-gradient(90deg, var(--cyan), var(--magenta));
+    border-radius:2px;
+  }
+
+  .section-label{
+    font-family:'Rajdhani',sans-serif;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    margin:26px 0 10px 4px;
+  }
+
+  .links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  a.link-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:14px 16px;
+    text-decoration:none;
+    color:var(--text);
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+  }
+  a.link-card:hover{
+    background:var(--card-hover);
+    border-color:rgba(49,229,200,0.4);
+    transform:translateY(-2px);
+  }
+  a.link-card:active{ transform:translateY(0); }
+
+  .link-icon{
+    width:40px; height:40px;
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    font-size:18px;
+    background:rgba(49,229,200,0.10);
+    color:var(--cyan);
+  }
+  .link-icon.mag{ background:rgba(255,59,110,0.10); color:var(--magenta); }
+
+  .link-text{ flex:1; min-width:0; }
+  .link-title{
+    font-weight:600;
+    font-size:15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .link-sub{
+    font-size:12.5px;
+    color:var(--text-dim);
+    margin-top:2px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .link-arrow{
+    color:var(--text-dim);
+    font-size:18px;
+    flex-shrink:0;
+  }
+
+  footer{
+    text-align:center;
+    margin-top:40px;
+    color:var(--text-dim);
+    font-size:12px;
+    line-height:1.6;
+  }
+  footer .disc{
+    margin-top:6px;
+    font-size:11px;
+    opacity:.7;
+  }
+  .socials{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin-top:18px;
+  }
+  .socials a{
+    color:var(--text-dim);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:500;
+    border:1px solid var(--border);
+    padding:6px 14px;
+    border-radius:20px;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .socials a:hover{
+    color:var(--cyan);
+    border-color:rgba(49,229,200,0.4);
+  }
+</style>
+</head>
+<body>
+
+  <div class="bg-lines"></div>
+  <div class="streak s1"></div>
+  <div class="streak s2"></div>
+  <div class="streak s3"></div>
+
+  <div class="wrap">
+
+    <div class="avatar"><div class="avatar-inner">R</div></div>
+    <h1>Rony</h1>
+    <p class="handle">@tuusuario</p>
+    <p class="tagline">Recomendaciones y productos digitales que uso. Toca un enlace para verlo.</p>
+
+    <div class="divider"></div>
+
+    <p class="section-label">Productos recomendados</p>
+    <div class="links">
+
+      <!-- ================================================================
+           EDITA AQUÍ TUS ENLACES DE HOTMART
+           Copia/pega este bloque <a class="link-card">...</a> por cada
+           producto y cambia: href, el texto del ícono, título y subtítulo.
+           ================================================================ -->
+
+      <a class="link-card" href="https://hotmart.com/es/marketplace" target="_blank" rel="noopener sponsored">
+        <div class="link-icon">01</div>
+        <div class="link-text">
+          <div class="link-title">Nombre del producto 1</div>
+          <div class="link-sub">Breve descripción del producto</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+      <a class="link-card" href="https://hotmart.com/es/marketplace" target="_blank" rel="noopener sponsored">
+        <div class="link-icon mag">02</div>
+        <div class="link-text">
+          <div class="link-title">Nombre del producto 2</div>
+          <div class="link-sub">Breve descripción del producto</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+      <a class="link-card" href="https://hotmart.com/es/marketplace" target="_blank" rel="noopener sponsored">
+        <div class="link-icon">03</div>
+        <div class="link-text">
+          <div class="link-title">Nombre del producto 3</div>
+          <div class="link-sub">Breve descripción del producto</div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+
+      <!-- Copia el bloque de arriba para agregar más productos -->
+
+    </div>
+
+    <footer>
+      <div class="socials">
+        <a href="https://tiktok.com/@tuusuario" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://instagram.com/tuusuario" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p style="margin-top:18px;">© 2026 Rony</p>
+      <p class="disc">Algunos enlaces son de afiliado: puedo recibir una comisión sin costo extra para ti.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
